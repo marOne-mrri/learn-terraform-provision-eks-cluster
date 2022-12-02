@@ -1,4 +1,12 @@
 terraform {
+  backend "s3" {
+    bucket         = "terraform-state-bucket-presentation-demo"
+    key            = "terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "state-locks-for-terraform-for-presentation-demo"
+    encrypt        = true
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -28,4 +36,3 @@ terraform {
 
   required_version = "~> 1.3"
 }
-
