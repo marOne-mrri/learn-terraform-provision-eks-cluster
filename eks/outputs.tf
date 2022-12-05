@@ -22,3 +22,8 @@ output "cluster_name" {
   description = "Kubernetes Cluster Name"
   value       = local.cluster_name
 }
+
+output "image_registry" {
+  description = "the ECR repo url"
+  value = aws_ecr_repository.main.repository_url
+}
