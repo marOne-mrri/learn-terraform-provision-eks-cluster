@@ -1,5 +1,0 @@
-{
-    "yaml.schemas": {
-        "kubernetes://schema/apps/v1@deployment+v1@service": "file:///home/marouane/Documents/learn-terraform-provision-eks-cluster/k8s/forntend.yaml"
-    }
-}
