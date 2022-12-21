@@ -5,7 +5,6 @@
 *.tfstate
 *.tfstate.*
 *.tfplan
-frontend
 # Crash log files
 crash.log
 
