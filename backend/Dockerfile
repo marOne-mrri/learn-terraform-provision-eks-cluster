@@ -1,5 +1,4 @@
-FROM openjdk:8-jdk-alpine
-
+FROM openjdk
 
 COPY target/*.jar app.jar
 
