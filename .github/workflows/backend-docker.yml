@@ -1,4 +1,4 @@
-name: CI of the frontend
+name: CI of the backend
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file ./frontend/Dockerfile --tag ${{ secrets.AWS_REGISTRY_URL }}/frontend
+      run: docker build . --file ./backend/Dockerfile --tag ${{ secrets.AWS_REGISTRY_URL }}/backend
 
     - name: Login to AWS
       run: |
@@ -24,4 +24,4 @@ jobs:
 
     - name: Push Docker Image
       run: |
-        docker push ${{ secrets.AWS_REGISTRY_URL }}/frontend
+        docker push ${{ secrets.AWS_REGISTRY_URL }}/backend
