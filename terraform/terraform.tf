@@ -32,7 +32,16 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "~> 2.12.1"
     }
+
+    github = {
+      source  = "integrations/github"
+      version = "~> 5.0"
+    }
   }
 
   required_version = "~> 1.3"
+}
+
+provider "github" {
+  token = ""
 }
