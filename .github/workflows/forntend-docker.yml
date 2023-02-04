@@ -2,26 +2,32 @@ name: CI of the frontend
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file ./frontend/Dockerfile --tag ${{ secrets.AWS_REGISTRY_URL }}/frontend
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-    - name: Login to AWS
-      run: |
-        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws configure set region us-west-2
-        aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin ${{ secrets.AWS_REGISTRY_URL }}
+      - name: Build for prod
+        run: npm run build --configuration production
 
-    - name: Push Docker Image
-      run: |
-        docker push ${{ secrets.AWS_REGISTRY_URL }}/frontend
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . --file ./frontend/Dockerfile --tag ${{ secrets.AWS_REGISTRY_URL }}/frontend
+
+      - name: Login to AWS
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region us-west-2
+          aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin ${{ secrets.AWS_REGISTRY_URL }}
+
+      - name: Push Docker Image
+        run: |
+          docker push ${{ secrets.AWS_REGISTRY_URL }}/frontend
