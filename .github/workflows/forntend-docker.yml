@@ -15,7 +15,10 @@ jobs:
           node-version: 16
 
       - name: Build for prod
-        run: npm run build --configuration production
+        run: |
+          cd ./frontend/
+          npm run build --configuration production
+          cd ../
 
       - uses: actions/checkout@v3
       - name: Build the Docker image

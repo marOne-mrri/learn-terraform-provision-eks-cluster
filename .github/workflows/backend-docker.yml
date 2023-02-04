@@ -15,9 +15,13 @@ jobs:
           java-version: "11"
           distribution: "temurin"
           cache: maven
+
       - name: build with maven
-        run: mvn --batch-mode -DskipTests package
-        
+        run: |
+          cd ./backend/
+          mvn --batch-mode -DskipTests package
+          cd ../
+
       - uses: actions/checkout@v3
       - name: Build the Docker image
         run: docker build . --file ./backend/Dockerfile --tag ${{ secrets.AWS_REGISTRY_URL }}/backend
