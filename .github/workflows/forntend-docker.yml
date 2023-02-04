@@ -25,7 +25,7 @@ jobs:
       - name: Build for prod
         run: |
           cd ./frontend/
-          npm run build --configuration production
+          ng build --configuration production
           cd ../
 
       - name: Build the Docker image
