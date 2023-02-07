@@ -35,7 +35,7 @@ jobs:
           cd ../
 
       - name: Build the Docker image
-        run: docker build . --file ./backend/Dockerfile --tag ${{ secrets.AWS_REGISTRY_URL }}/backend
+        run: docker build . --file ./backend/Dockerfile --tag 359722584366.dkr.ecr.us-east-1.amazonaws.com/backend
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -45,5 +45,4 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker images | cat
-          docker push ${{ secrets.AWS_REGISTRY_URL }}/backend
+          docker push 359722584366.dkr.ecr.us-east-1.amazonaws.com/backend
