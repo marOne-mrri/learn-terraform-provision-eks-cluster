@@ -45,4 +45,4 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker push 359722584366.dkr.ecr.us-east-1.amazonaws.com/backend
+          docker push backend
