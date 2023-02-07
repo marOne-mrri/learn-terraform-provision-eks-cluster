@@ -45,7 +45,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
-          ECR_REPOSITORY: "frontend"
+          ECR_REPOSITORY: "presentation-ecr"
         run: |
           docker build . --file ./frontend/Dockerfile --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
