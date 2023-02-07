@@ -49,4 +49,5 @@ jobs:
 
       - name: Push Docker Image
         run: |
+          docker images | cat
           docker push ${{ secrets.AWS_REGISTRY_URL }}/frontend
