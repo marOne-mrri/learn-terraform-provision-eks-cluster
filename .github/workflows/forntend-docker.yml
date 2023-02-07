@@ -49,5 +49,4 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          # aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_REGISTRY_URL }}
           docker push ${{ secrets.AWS_REGISTRY_URL }}/frontend
