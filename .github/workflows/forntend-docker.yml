@@ -41,7 +41,13 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file ./frontend/Dockerfile --tag ${{ secrets.AWS_REGISTRY_URL }}/frontend
 
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        with:
+          registry-type: private
+
       - name: Push Docker Image
         run: |
-          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_REGISTRY_URL }}
+          # aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_REGISTRY_URL }}
           docker push ${{ secrets.AWS_REGISTRY_URL }}/frontend
