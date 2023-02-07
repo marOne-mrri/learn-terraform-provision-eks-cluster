@@ -47,6 +47,6 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
           ECR_REPOSITORY: "frontend"
         run: |
-          docker build --file ./frontend/Dockerfile --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build . --file ./frontend/Dockerfile --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
