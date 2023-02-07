@@ -7,9 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # permissions:
-    #   id-token: write
-    #   contents: read
 
     steps:
       - name: Configure AWS Credentials
@@ -34,15 +31,18 @@ jobs:
           mvn --batch-mode -DskipTests package
           cd ../
 
-      - name: Build the Docker image
-        run: docker build . --file ./backend/Dockerfile --tag 359722584366.dkr.ecr.us-east-1.amazonaws.com/backend
-
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         with:
           registry-type: private
 
-      - name: Push Docker Image
+      - name: Build and Push Docker Image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+          ECR_REPOSITORY: "backend"
         run: |
-          docker push backend
+          docker build --file ./backend/Dockerfile --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
