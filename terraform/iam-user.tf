@@ -15,7 +15,7 @@ resource "aws_iam_user_policy" "github_actions_ro" {
           "ecr:*"
         ],
         Effect   = "Allow",
-        Resource = aws_ecr_repository.main.arn
+        Resource = "*"
       }
     ]
   })

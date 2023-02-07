@@ -23,7 +23,12 @@ output "cluster_name" {
   value       = local.cluster_name
 }
 
-output "image_registry" {
-  description = "the ECR repo url"
-  value = aws_ecr_repository.main.repository_url
+output "image_registry_frontend" {
+  description = "the ECR repo frontend url"
+  value       = aws_ecr_repository.frontend.repository_url
+}
+
+output "image_registry_backend" {
+  description = "the ECR repo backend url"
+  value       = aws_ecr_repository.backend.repository_url
 }
