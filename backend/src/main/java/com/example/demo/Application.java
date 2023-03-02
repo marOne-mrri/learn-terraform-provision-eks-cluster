@@ -14,7 +14,7 @@ public class Application {
 
 	@GetMapping("/")
 	public Map<String, String> home() {
-		return Map.of("message", "hello from backend");
+		return Map.of("message", "hello world, from backend");
 	}
 
 	public static void main(String[] args) {
