@@ -2,7 +2,7 @@ name: CI of the frontend
 
 on:
   push:
-    branches: ["main"]
+    branches: ["frontend"]
 
 jobs:
   build:
