@@ -9,6 +9,6 @@ spec:
   ports:
   - name: frontend
     port: 80
-    targetPort: 80
+    targetPort: frontend
   selector:
     app: frontend
