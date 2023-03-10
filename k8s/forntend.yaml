@@ -16,7 +16,14 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: "359722584366.dkr.ecr.us-east-1.amazonaws.com/frontend:d986f4c013f0880fedfdf9702a0d858b459a5d5b"
+          image: "359722584366.dkr.ecr.us-east-1.amazonaws.com/frontend:latest"
           ports:
             - containerPort: 80
               name: frontend
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.3"

@@ -16,7 +16,14 @@ spec:
     spec:
       containers:
         - name: backend
-          image: "359722584366.dkr.ecr.us-east-1.amazonaws.com/backend:31605b04caa739874baa989699793efd077ac765"
+          image: "359722584366.dkr.ecr.us-east-1.amazonaws.com/backend:latest"
           ports:
             - containerPort: 8080
               name: backend
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.3"
