@@ -1,6 +1,15 @@
 # Learn Terraform - Provision an EKS Cluster - Deploy to the EKS cluster a fullstack App
 
-This project demonstrates how to use Infrastructure as Code (IaC) to deploy a fullstack application using Terraform, Docker, and Kubernetes.
+This project provides an example infrastructure as code (IaC) setup using Terraform, Docker, and Kubernetes to deploy a full-stack application. The Terraform code was forked from [hashicorp/learn-terraform-provision-eks-cluster](https://github.com/hashicorp/learn-terraform-provision-eks-cluster).
+
+## Requirements
+
+- Java
+- Node.js
+- Angular
+- Terraform
+- Docker
+- Kubernetes
 
 ## Project Structure
 
@@ -22,9 +31,6 @@ To get started with this project, follow these steps:
 4. Run `terraform apply` to deploy the infrastructure.
 5. Navigate to the `k8s/` directory.
 6. Run `kubectl apply -f .` to deploy the Kubernetes resources.
-7. Navigate to the `frontend/` directory.
-8. Run `npm install` to install the frontend dependencies.
-9. Run `npm start` to start the frontend development server.
 
 ## Contributing
 
