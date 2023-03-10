@@ -1,7 +1,41 @@
 # Learn Terraform - Provision an EKS Cluster - Deploy to the EKS cluster a fullstack App
 
-This repo is a companion repo to the [Provision an EKS Cluster tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks), containing
-Terraform configuration files to provision an EKS cluster on AWS.
-also added the code that deployes to the cluster.
-created the terraform config to create ECR where we store docker images.
-created a fullstack app using angular and spring boot + a Dockerfile for each of them.
+This project demonstrates how to use Infrastructure as Code (IaC) to deploy a fullstack application using Terraform, Docker, and Kubernetes.
+
+## Project Structure
+
+The project is organized into the following directories:
+
+- `backend/`: contains the backend code for the application.
+- `frontend/`: contains the frontend code for the application.
+- `k8s/`: contains the Kubernetes configuration files.
+- `state/`: contains the Terraform state files.
+- `terraform/`: contains the Terraform configuration files.
+
+## Getting Started
+
+To get started with this project, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Navigate to the `terraform/` directory.
+3. Run `terraform init` to initialize the Terraform modules.
+4. Run `terraform apply` to deploy the infrastructure.
+5. Navigate to the `k8s/` directory.
+6. Run `kubectl apply -f .` to deploy the Kubernetes resources.
+7. Navigate to the `frontend/` directory.
+8. Run `npm install` to install the frontend dependencies.
+9. Run `npm start` to start the frontend development server.
+
+## Contributing
+
+If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your changes.
+3. Make your changes and commit them to your branch.
+4. Push your branch to your forked repository.
+5. Create a new pull request from your branch to the original repository.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
