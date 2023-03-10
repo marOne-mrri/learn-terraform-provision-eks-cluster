@@ -1,6 +1,6 @@
 # Learn Terraform - Provision an EKS Cluster - Deploy to the EKS cluster a fullstack App
 
-This project provides an example infrastructure as code (IaC) setup using Terraform, Docker, and Kubernetes to deploy a full-stack application. The Terraform code was forked from [hashicorp/learn-terraform-provision-eks-cluster](https://github.com/hashicorp/learn-terraform-provision-eks-cluster).
+This project provides an example infrastructure as code (IaC) setup using Terraform, Docker, and Kubernetes to deploy a full-stack application. The Terraform code was forked from [hashicorp/learn-terraform-provision-eks-cluster](https://github.com/hashicorp/learn-terraform-provision-eks-cluster) and updated to meet my Requirements.
 
 ## Requirements
 
